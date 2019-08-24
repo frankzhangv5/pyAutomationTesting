@@ -5,13 +5,16 @@ python3.7 automation test framework(unittest + BeautifulReport+ pytest + pytest-
 ## 1. Setup Project
 ```
 cd path/to/pyAutomationTesting
-pip install -r requirements.txt
+python -m venv venv
+venv\Scripts\activate.bat
+(venv) path/to/pyAutomationTesting>pip install -r requirements.txt
 ```
 
 ## 2. Run testcase
 ```
 cd path/to/pyAutomationTesting
-python main.py
+venv\Scripts\activate.bat
+(venv) path/to/pyAutomationTesting>python main.py
 ```
 
 ## 3. Add your own testcases
