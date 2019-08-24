@@ -1,4 +1,5 @@
 # pyAutomationTesting
+![](https://img.shields.io/badge/python-3.7-brightgreen)
 python3.7 automation test framework(unittest + BeautifulReport+ pytest + pytest-html + selenium)
 
 
