@@ -44,18 +44,19 @@ class Log:
         else:
             print_func = self.logger.debug
 
-        module = os.path.basename(sys._getframe().f_back.f_back.f_code.co_filename)
+        module_name = os.path.basename(sys._getframe().f_back.f_back.f_code.co_filename)
         func_name = os.path.basename(sys._getframe().f_back.f_back.f_code.co_name)
-        linenum = sys._getframe().f_back.f_back.f_lineno
+        line_num = sys._getframe().f_back.f_back.f_lineno
 
         if func_name == '<module>':
             func_name = '__main__'
 
         if print_func is not None:
-            print_func("%-10s(%-10s:%d): %s" % (module, func_name, linenum, msg))
+            print_func("%-10s(%-10s:%d): %s" % (module_name, func_name, line_num, msg))
 
         if Log._console_print:
-            print("%s - %-5s - %-10s(%-10s:%d): %s" % (str(datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")), level, str(module), func_name, linenum, str(msg)))
+            print("%s - %-5s - %-10s(%-10s:%d): %s" % (str(datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")), level,
+                                                       str(module_name), func_name, line_num, str(msg)))
 
     def _print_action_log(self, action, msg):
         self._print_level_log('INFO', "[%-5s] -> [%s]" % (action, msg))
